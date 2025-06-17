@@ -9,7 +9,8 @@
     pkgs.wayland-utils
     pkgs.wl-clipboard
 
-    pkgs.haruna
+    pkgs.mpv
+    pkgs.keepassxc
     pkgs.kmymoney
     pkgs.thunderbird
     pkgs.yt-dlp

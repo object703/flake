@@ -10,11 +10,17 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.tmp.cleanOnBoot = true;
-  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-label/crypt";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    
+    loader = {
+      systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+    };
+
+    tmp.cleanOnBoot = true;
+    boot.initrd.luks.devices."crypt".device = "/dev/disk/by-label/crypt";
+  };
 
   nix = {
     settings.experimental-features =["nix-command" "flakes"];
@@ -25,8 +31,10 @@
     };
   };
 
-  networking.hostName = "laptop"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "laptop";
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "Europe/London";
 
@@ -76,6 +84,7 @@
     enable = true;
   };
 
+  programs.steam.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -84,7 +93,6 @@
     git
     zsh
     vim
-
     # monitoring
     htop
     nload
