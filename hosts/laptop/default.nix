@@ -35,6 +35,12 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  #hardware.pulseaudio.enable = true;
+  #services.blueman.enable = true;
+
   # Locale
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -98,6 +104,9 @@
     vim
     git
     gnupg
+
+    qbittorrent
+    haruna
   ];
 
   home-manager.users.${vars.user} = {
