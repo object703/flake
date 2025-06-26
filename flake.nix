@@ -10,28 +10,35 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
-    let
-      vars = {
-        user = "gary";
-        editor = "vim";
-      };
-    in
-    {
-      nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs vars; };
-          modules = [
-            ./hosts/laptop
+  outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/laptop
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
-          ];
-        };
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
+
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs= { inherit inputs; };
+        modules = [
+          ./hosts/desktop
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
       };
     };
+  };
 }
