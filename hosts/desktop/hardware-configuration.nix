@@ -19,7 +19,7 @@
       options = [ "subvol=root" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/7b8dacf0-7cf8-4bf1-8093-b7c3b16777d9";
+  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-uuid/7b8dacf0-7cf8-4bf1-8093-b7c3b16777d9";
 
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/8f656d06-b0de-4c0f-956e-a1ead4610122";
@@ -36,7 +36,7 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/5F6B-9552";
       fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
+      options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices = [ ];

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, home-manager, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -19,7 +19,13 @@
     };
 
     tmp.cleanOnBoot = true;
-    initrd.luks.devices."crypt".device = "/dev/disk/by-label/crypt";
+  };
+
+  fileSystems = {
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+    #"/swap".options = [ "noatime" ];
   };
 
   nix = {
@@ -49,7 +55,7 @@
   };
 
   networking = {
-    hostName = "laptop";
+    hostName = "desktop";
     networkmanager.enable = true;
   };
 
@@ -92,7 +98,6 @@
   };
 
   programs.steam.enable = true;
-  programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -102,14 +107,5 @@
     vim
     git
     gnupg
-
-    qbittorrent
-    haruna
   ];
-
-  home-manager.users.gary = {
-    home.stateVersion = "25.05";
-    programs.home-manager.enable = true;
-
-  };
 }
