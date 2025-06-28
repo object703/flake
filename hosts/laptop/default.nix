@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, home-manager, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -38,8 +38,6 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  #hardware.pulseaudio.enable = true;
-  #services.blueman.enable = true;
 
   # Locale
   time.timeZone = "Europe/London";
@@ -94,7 +92,6 @@
   };
 
   programs.steam.enable = true;
-  programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -104,14 +101,5 @@
     vim
     git
     gnupg
-
-    qbittorrent
-    haruna
   ];
-
-  home-manager.users.gary = {
-    home.stateVersion = "25.05";
-    programs.home-manager.enable = true;
-
-  };
 }
