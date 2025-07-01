@@ -10,13 +10,15 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, ... }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+  {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/laptop
+          ./users/gary
 
           home-manager.nixosModules.home-manager
           {
@@ -32,6 +34,7 @@
         specialArgs= { inherit inputs; };
         modules = [
           ./hosts/desktop
+          ./users/gary
 
           home-manager.nixosModules.home-manager
           {
