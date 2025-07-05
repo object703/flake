@@ -24,13 +24,12 @@ in
         libreoffice
         qbittorrent
         kmymoney
+        keepassxc
 
         # media
         mpv # mpv frontend
         strawberry # music player
-        keepassxc
         qbittorrent
-        haruna
 
         # development
         nil # nix lsp
@@ -40,13 +39,14 @@ in
         neofetch
         htop
         whois
+        rclone
       ];
     };
 
     imports = [
-      ../../pkgs/firefox.nix
-      ../../pkgs/git.nix
-      ../../pkgs/zsh.nix
+      ./pkgs/firefox.nix
+      ./pkgs/git.nix
+      ./pkgs/zsh.nix
     ];
 
     programs.home-manager.enable = true;
