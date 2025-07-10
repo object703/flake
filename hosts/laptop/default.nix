@@ -19,7 +19,7 @@
     ../../nixos/server.nix
   ];
 
-  home-manager.users.gary = import ./home.nix;
+  home-manager.users.gary = import ../../home/graphical.nix;
 
   system.stateVersion = "25.05";
 }

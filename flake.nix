@@ -53,8 +53,19 @@
           specialArgs= { inherit inputs; };
           modules = [
             common
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
             ./hosts/desktop
+          ];
+        };
+
+        laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs= { inherit inputs; };
+          modules = [
+            common
+            inputs.home-manager.nixosModules.home-manager
+            ./hosts/laptop
           ];
         };
       };
