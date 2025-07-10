@@ -40,29 +40,28 @@
       security.doas.wheelNeedsPassword = false;
 
       # programs
-      environment.systemPackages = with pkgs; [
-        wget curl vim git htop
-      ];
+      # environment.systemPackages = with pkgs; [
+      #   wget curl vim git htop
+      # ];
 
     };
     in {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs= { inherit inputs; };
+          specialArgs = { inherit inputs; };
           modules = [
             common
-            inputs.home-manager.nixosModules.home-manager
             ./hosts/desktop
+            home-manager.nixosModules.home-manager
           ];
         };
 
         laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs= { inherit inputs; };
+          specialArgs = { inherit inputs; };
           modules = [
+            {_module.args = { inherit inputs ;};}
             common
             inputs.home-manager.nixosModules.home-manager
             ./hosts/laptop

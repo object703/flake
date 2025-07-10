@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
-    ../../home/pkgs/firefox.nix
-    ../../home/pkgs/git.nix
-    ../../home/pkgs/zsh.nix
+    ./pkgs/firefox.nix
+    ./pkgs/git.nix
+    ./pkgs/zsh.nix
   ];
-
+  
   home = {
     homeDirectory = "/home/gary";
 
@@ -32,7 +32,6 @@
       ocaml
       python3
     ];
-
 
     stateVersion = "25.05";
   };
