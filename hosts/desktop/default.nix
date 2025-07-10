@@ -1,112 +1,31 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../users/gary
+  networking.hostName = "desktop";
 
-    ];
+  imports = [
+    ./hardware-configuration.nix
 
-  system.stateVersion = "25.05";
+    ../../users/gary.nix
+    ../../home/graphical.nix
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      timeout = 3;
-    };
-
-    tmp.cleanOnBoot = true;
-  };
+    ../../nixos/bluetooth.nix
+    ../../nixos/games.nix
+    ../../nixos/home-manager.nix
+    ../../nixos/kde.nix
+    ../../nixos/locale.nix
+    ../../nixos/mouse.nix
+    ../../nixos/networkmanager.nix
+    ../../nixos/server.nix
+  ];
 
   fileSystems = {
     "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
-    #"/swap".options = [ "noatime" ];
   };
 
-  nix = {
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
-  };
-  nixpkgs.config.allowUnfree = true;
+  home-manager.users.gary = import ./home.nix;
 
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
-  # Locale
-  time.timeZone = "Europe/London";
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "uk";
-  };
-
-  networking = {
-    hostName = "desktop";
-    networkmanager.enable = true;
-  };
-
-  # Services
-  services = {
-    xserver.enable = true;
-    desktopManager.plasma6.enable = true;
-    displayManager = {
-      autoLogin.enable = true;
-      autoLogin.user = "gary";
-      sddm.enable = true;
-      sddm.wayland.enable = true;
-    };
-
-    libinput = {
-      enable = true;
-      mouse = {
-        accelSpeed = "0";
-        accelProfile = "flat";
-        middleEmulation = false;
-        tappingDragLock = false;
-        tapping = false;
-      };
-    };
-
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-    };
-    pulseaudio.enable = false;
-
-    openssh.enable = true;
-    printing.enable = true;
-    flatpak.enable = true;
-  };
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
-
-  programs.steam.enable = true;
-  programs.zsh.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    wget
-    curl
-
-    vim
-    git
-    gnupg
-  ];
+  system.stateVersion = "25.05";
 }
