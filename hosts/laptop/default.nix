@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  networking.hostName = "desktop";
+  networking.hostName = "titania";
 
   imports = [
     ./hardware-configuration.nix
