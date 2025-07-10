@@ -2,6 +2,7 @@
 
 {
   networking.hostName = "titania";
+  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-label/crypt";
 
   imports = [
     ./hardware-configuration.nix
