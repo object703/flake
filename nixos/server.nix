@@ -11,6 +11,10 @@
       enable = true;
       openDefaultPorts = true;
       extraFlags = [ "--no-default-folder" ];
+
+      # tidy this up
+      configDir = "/home/gary/.config/syncthing";
+      user = "gary";
     };
   };
 }
