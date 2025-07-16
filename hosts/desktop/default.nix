@@ -19,6 +19,7 @@
     ../../nixos/nix.nix
     ../../nixos/security.nix
     ../../nixos/server.nix
+    ../../nixos/shell.nix
 
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
@@ -37,8 +38,8 @@
       imports = [
         ../../home/pkgs/firefox.nix
         ../../home/pkgs/git.nix
-        ../../home/pkgs/zsh.nix
       ];
+
       home = {
         homeDirectory = "/home/gary";
         packages = with pkgs; [

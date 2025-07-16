@@ -32,8 +32,8 @@
       imports = [
         ../../home/pkgs/firefox.nix
         ../../home/pkgs/git.nix
-        ../../home/pkgs/zsh.nix
       ];
+
       home = {
         homeDirectory = "/home/gary";
         packages = with pkgs; [
