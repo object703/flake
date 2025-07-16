@@ -9,12 +9,18 @@
 
     ../../users/gary.nix
 
+    ../../nixos/boot.nix
+    ../../nixos/locale.nix
+    ../../nixos/nix.nix
+    ../../nixos/security.nix
+    ../../nixos/server.nix
+
+    ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
+    ../../nixos/display.nix
     ../../nixos/games.nix
-    ../../nixos/kde.nix
     ../../nixos/mouse.nix
     ../../nixos/networkmanager.nix
-    ../../nixos/server.nix
   ];
 
   home-manager = {

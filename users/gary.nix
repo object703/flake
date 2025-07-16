@@ -7,6 +7,5 @@ in
     description = "${lib.toSentenceCase username}";
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
-    shell = pkgs.zsh;
   };
 }

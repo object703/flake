@@ -3,24 +3,30 @@
 {
   networking.hostName = "triton";
 
-  imports = [
-    ./hardware-configuration.nix
-
-    ../../users/gary.nix
-
-    ../../nixos/bluetooth.nix
-    ../../nixos/games.nix
-    ../../nixos/kde.nix
-    ../../nixos/mouse.nix
-    ../../nixos/networkmanager.nix
-    ../../nixos/server.nix
-  ];
-
   fileSystems = {
     "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
+
+  imports = [
+    ./hardware-configuration.nix
+
+    ../../users/gary.nix
+
+    ../../nixos/boot.nix
+    ../../nixos/locale.nix
+    ../../nixos/nix.nix
+    ../../nixos/security.nix
+    ../../nixos/server.nix
+
+    ../../nixos/audio.nix
+    ../../nixos/bluetooth.nix
+    ../../nixos/display.nix
+    ../../nixos/games.nix
+    ../../nixos/mouse.nix
+    ../../nixos/networkmanager.nix
+  ];
 
   home-manager = {
     useGlobalPkgs = true;

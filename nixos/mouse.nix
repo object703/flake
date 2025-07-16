@@ -1,7 +1,9 @@
 { ... }:
 
 {
-  services.libinput.enable = true;
-  services.libinput.mouse.accelSpeed = "0";
-  services.libinput.mouse.accelProfile = "flat";
+  services.libinput = {
+    enable = true;
+    mouse.accelSpeed = "0";
+    mouse.accelProfile = "flat";
+  };
 }
