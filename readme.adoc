@@ -1,18 +1,19 @@
 = flake
 
-my personal nixos configuration, using flake and home-manager. feel free to copy parts, but you likely don't want to copy the entire setup because i actually don't have a fucking clue
+my personal nixos configuration, using flake and home-manager. feel free to copy, but i don't really know what i am doing here. good luck.
 
 == installation
 
-1. get a copy
-+
- ----
- git clone https://codeberg.org/shrike/flake.git
- ----
-
-2. generate a `hardware-configuration.nix` and overwrite the existing one in `./hosts/desktop`
-3. and build with
+. get a copy
 +
 ----
-doas nixos-rebuild switch flake/.#desktop
+cd ~/.config
+git clone https://codeberg.org/shrike/flake.git
+----
+
+. generate a `hardware-configuration.nix` and overwrite the existing one in `./hosts/desktop`
+. and build with
++
+----
+doas nixos-rebuild switch --flake ~/.config/flake/.#desktop
 ----
