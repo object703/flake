@@ -10,13 +10,14 @@
     kmymoney
     syncthing
     vscode-fhs
+    inkscape
 
     # utils
     htop
     rclone
     whois
     fastfetch
-
+    tree
 
     # media
     mpv
