@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # applications
     thunderbird
-    libreoffice
+    libreoffice-qt
     qbittorrent
     keepassxc
     kmymoney
