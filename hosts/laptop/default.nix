@@ -31,6 +31,7 @@
     extraSpecialArgs = { inherit inputs; };
     users.gary = {
       imports = [
+        ../../home/xdg.nix
         ../../home/pkgs/base.nix
         ../../home/pkgs/firefox.nix
         ../../home/pkgs/git.nix
