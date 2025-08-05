@@ -5,6 +5,8 @@
     # applications
     thunderbird
     libreoffice-qt
+    hunspell
+    hunspellDicts.en-gb-large
     qbittorrent
     keepassxc
     kmymoney
