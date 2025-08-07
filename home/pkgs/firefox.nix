@@ -11,6 +11,9 @@
 #         "*".installation_mode = "blocked";
 #       };
       Preferences = {
+        # ui fixes
+        "browser.urlbar.trimURLs" = false;
+
         # kde integration
         "widget.use-xdg-desktop-portal.file-picker" = 1;
         "widget.use-xdg-desktop-portal.location" = 1;
