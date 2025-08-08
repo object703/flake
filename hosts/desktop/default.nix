@@ -24,6 +24,7 @@
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
     ../../nixos/display.nix
+    ../../nixos/fonts.nix
     ../../nixos/games.nix
     ../../nixos/mouse.nix
     ../../nixos/networkmanager.nix
