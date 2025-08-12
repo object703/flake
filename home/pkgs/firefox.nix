@@ -69,6 +69,11 @@
         id = 1;
         isDefault = false;
       };
+
+      testing = {
+        id = 2;
+        isDefault = false;
+      };
     };
   };
 }
