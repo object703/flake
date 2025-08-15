@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # applications
+    brave
     thunderbird
     libreoffice-qt
     hunspell
