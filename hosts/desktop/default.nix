@@ -21,6 +21,7 @@
     ../../nixos/server.nix
     ../../nixos/shell.nix
 
+    ../../nixos/android.nix
     ../../nixos/audio.nix
     ../../nixos/bluetooth.nix
     ../../nixos/display.nix
