@@ -29,6 +29,7 @@
     ../../nixos/games.nix
     ../../nixos/mouse.nix
     ../../nixos/networkmanager.nix
+    ../../nixos/virtualisation.nix
   ];
 
   home-manager = {
