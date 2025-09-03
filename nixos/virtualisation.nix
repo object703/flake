@@ -1,4 +1,4 @@
-{ ... };
+{ ... }:
 
 {
    users.extraGroups.vboxusers.members = [ "gary" ];

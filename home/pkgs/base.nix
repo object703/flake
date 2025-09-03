@@ -16,6 +16,7 @@
     inkscape
     mpv
     strawberry
+    obsidian
 
     # utils
     wget
