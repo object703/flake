@@ -43,6 +43,7 @@
         ../../home/pkgs/base.nix
         ../../home/pkgs/firefox.nix
         ../../home/pkgs/git.nix
+        ../../home/pkgs/office.nix
       ];
 
       home = {

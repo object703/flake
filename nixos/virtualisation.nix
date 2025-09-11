@@ -1,7 +1,19 @@
 { ... }:
 
 {
+   users.users.gary.extraGroups = [ "podman" ];
    users.extraGroups.vboxusers.members = [ "gary" ];
-   virtualisation.virtualbox.host.enable = true;
-   virtualisation.virtualbox.host.enableExtensionPack = true;
+
+   virtualisation = {
+      podman = {
+         enable = true;
+         dockerCompat = true;
+         defaultNetwork.settings.dns_enabled = true;
+      };
+
+      virtualbox= {
+         host.enable = true;
+         host.enableExtensionPack = true;
+      };
+   };
 }
