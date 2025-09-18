@@ -14,6 +14,7 @@
     mpv
     strawberry
     obsidian
+    dbeaver-bin
 
     # utils
     wget
