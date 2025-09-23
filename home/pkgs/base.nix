@@ -15,6 +15,7 @@
     strawberry
     obsidian
     dbeaver-bin
+    gimp3
 
     # utils
     wget
