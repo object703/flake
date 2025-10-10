@@ -16,6 +16,7 @@
     obsidian
     dbeaver-bin
     gimp3
+    freerdp
 
     # utils
     wget
