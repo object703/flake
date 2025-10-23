@@ -31,5 +31,8 @@
     whois
     fastfetch
     tree
+
+    # development
+    php
   ];
 }
