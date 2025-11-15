@@ -30,6 +30,7 @@
     ../../nixos/mouse.nix
     ../../nixos/networkmanager.nix
     ../../nixos/virtualisation.nix
+    ../../nixos/vpn.nix
   ];
 
   home-manager = {
