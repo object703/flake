@@ -30,7 +30,7 @@
     ../../nixos/mouse.nix
     ../../nixos/networkmanager.nix
     ../../nixos/virtualisation.nix
-    ../../nixos/vpn.nix
+    #../../nixos/vpn.nix
   ];
 
   home-manager = {
@@ -45,6 +45,7 @@
         ../../home/pkgs/firefox.nix
         ../../home/pkgs/git.nix
         ../../home/pkgs/office.nix
+        ../../home/pkgs/games.nix
       ];
 
       home = {
